@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inspirational Wind Sounds</title>
+    <style>
+        /* Сброс базовых стилей для чистоты верстки */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body, html {
+            height: 100%;
+            background-color: #8b939f; /* Цвет фона за пределами макета */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Главный контейнер (имитация экрана) */
+        .app-container {
+            width: 1200px;
+            height: 700px;
+            /* ВСТАВЬ СЮДА ССЫЛКУ НА КРАСИВУЮ ФОТОГРАФИЮ ГОР */
+            background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            border-radius: 12px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            color: #ffffff;
+        }
+
+        /* --- НАВИГАЦИЯ (HEADER) --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 40px;
+            height: 80px;
+        }
+
+        .logo {
+            background-color: #1a1a1a;
+            padding: 10px 15px;
+            font-weight: bold;
+            font-size: 18px;
+            letter-spacing: 1px;
+            border-radius: 4px;
+        }
+
+        /* Аккуратная навигация */
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+
+        nav a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover, nav a.active {
+            color: #ffffff;
+        }
+
+        .header-controls {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        
+        .header-controls span {
+            cursor: pointer;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.3);
+            padding-bottom: 5px;
+            margin-left: 20px;
+        }
+        
+        .search-bar input {
+            background: none;
+            border: none;
+            color: white;
+            outline: none;
+            width: 100px;
+        }
+
+        /* --- ОСНОВНОЙ КОНТЕНТ --- */
+        .main-content {
+            display: flex;
+            flex: 1;
+            padding: 0 40px;
+            align-items: center;
+        }
+
+        .left-col {
+            flex: 1;
+            padding-right: 50px;
+        }
+
+        .left-col h1 {
+            font-size: 54px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        /* Выверенные отступы для текста */
+        .left-col p {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+            max-width: 500px;
+            margin-bottom: 30px;
+        }
+
+        .see-more-link {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: white;
+            text-decoration: none;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .see-more-link::before {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 2px;
+            background-color: white;
+        }
+
+        /* --- ПРАВАЯ ПАНЕЛЬ (ГЛАССМОРФИЗМ) --- */
+        .right-col {
+            width: 350px;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(255,255,255,0.1), rgba(0,0,0,0.4));
+            backdrop-filter: blur(10px); /* Тот самый эффект матового стекла */
+            -webkit-backdrop-filter: blur(10px);
+            border-left: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 40px;
+        }
+
+        .list-item {
+            margin-bottom: 30px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 20px;
+        }
+
+        .list-item h3 {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .list-item p {
+            font-size: 11px;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.5;
+        }
+
+        /* --- НИЖНЯЯ ПАНЕЛЬ (ПЛЕЕР) --- */
+        .player-bar {
+            height: 90px;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(15px);
+            display: flex;
+            align-items: center;
+            padding: 0 40px;
+            gap: 30px;
+        }
+
+        .track-info {
+            font-size: 12px;
+            font-weight: bold;
+            min-width: 200px;
+        }
+
+        .play-controls {
+            display: flex;
+            gap: 15px;
+            cursor: pointer;
+        }
+
+        .progress-bar-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+        }
+
+        .progress-line {
+            height: 2px;
+            width: 100%;
+            background: rgba(255,255,255,0.3);
+            position: relative;
+        }
+
+        .progress-line::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 30%; /* Текущий прогресс трека */
+            background: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app-container">
+        
+        <header>
+            <div class="logo">MR</div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#">Product</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact us</a></li>
+                </ul>
+            </nav>
+            <div class="header-controls">
+                <span>👤</span>
+                <span>🛒</span>
+                <span>☷</span>
+                <div class="search-bar">
+                    <input type="text" placeholder="Search">
+                    <span>🔍</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-content">
+            
+            <div class="left-col">
+                <h1>Inspirational wind sounds</h1>
+                <p>Vuesax is a framework of Vue js with Front End components strongly crafted looking for Vuesax.com. Build your next modern digital experience with ease.</p>
+                <a href="#" class="see-more-link">See more</a>
+            </div>
+
+            <div class="right-col">
+                <div class="list-item">
+                    <h3>01 Vuesax Framework</h3>
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam, eaque ipsa.</p>
+                </div>
+                <div class="list-item">
+                    <h3>02 Lusax Web Agency</h3>
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam, eaque ipsa.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="player-bar">
+            <div class="track-info">Sountraks Paradise - Mix</div>
+            <div class="play-controls">
+                <span>⏸</span>
+                <span>⏭</span>
+            </div>
+            <div class="progress-bar-container">
+                <div class="progress-line"></div>
+            </div>
+            <div class="volume-controls">
+                <span>📶</span>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
