@@ -27,11 +27,11 @@
         .app-container {
             width: 1200px;
             height: 700px;
-            /* НОВАЯ КАРТИНКА: Изящный, минималистичный, разнообразный натюрморт из свежих продуктов (зелень, овощи, фрукты), без перегрузки и мяса */
-            background-image: url('https://images.unsplash.com/photo-1579621970563-ebec7560f3e2?q=80&w=2072&auto=format&fit=crop');
+            /* НОВАЯ КАРТИНКА: Темный премиальный фон с овощами, надежная ссылка */
+            background-image: url('https://images.unsplash.com/photo-1498837167922-ddd27525d352?q=80&w=2070&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
-            border-radius: 4px; /* Уменьшили скругление для большей строгости */
+            border-radius: 4px;
             box-shadow: 0 10px 40px rgba(0,0,0,0.8);
             position: relative;
             overflow: hidden;
@@ -44,7 +44,7 @@
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0, 0, 0, 0.3); /* Легкое затемнение для контраста тонких букв */
+            background: rgba(0, 0, 0, 0.4); /* Затемнение для контраста текста */
             z-index: 1;
         }
 
@@ -164,7 +164,7 @@
             background: linear-gradient(to bottom, rgba(255,255,255,0.05), rgba(0,0,0,0.4));
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
-            border-left: 1px solid rgba(255,255,255,0.1); /* Очень тонкая граница */
+            border-left: 1px solid rgba(255,255,255,0.1);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -248,7 +248,7 @@
     <div class="app-container">
         
         <header>
-            <div class="logo">Логотип</div>
+            <div class="logo">FoodPro</div>
             <nav>
                 <ul>
                     <li><a href="#" class="active">Каталог</a></li>
@@ -292,7 +292,7 @@
                 </div>
                 <div class="contact-item">
                     <span class="label">Email для заявок</span>
-                    <span class="value">zakaz@zakaz.ru</span>
+                    <span class="value">zakaz@foodpro.ru</span>
                 </div>
             </div>
             
