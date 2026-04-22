@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FoodPro | Premium B2B</title>
+    <title>FoodPro | Premium HoReCa</title>
     <style>
         /* Сброс базовых стилей */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            /* Используем тонкое начертание по умолчанию */
+            /* Используем изящное начертание шрифта по умолчанию */
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
             font-weight: 300; 
         }
@@ -27,7 +27,8 @@
         .app-container {
             width: 1200px;
             height: 700px;
-            background-image: url('https://images.unsplash.com/photo-1598511757337-fe2cafc31ba0?q=80&w=2070&auto=format&fit=crop');
+            /* НОВАЯ КАРТИНКА: Изящный, минималистичный, разнообразный натюрморт из свежих продуктов (зелень, овощи, фрукты), без перегрузки и мяса */
+            background-image: url('https://images.unsplash.com/photo-1579621970563-ebec7560f3e2?q=80&w=2072&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
             border-radius: 4px; /* Уменьшили скругление для большей строгости */
@@ -43,7 +44,7 @@
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0, 0, 0, 0.4); /* Чуть больше затемнили для контраста тонких букв */
+            background: rgba(0, 0, 0, 0.3); /* Легкое затемнение для контраста тонких букв */
             z-index: 1;
         }
 
@@ -58,7 +59,6 @@
             z-index: 2;
         }
 
-        /* Логотип теперь без фона, просто тонкая рамка */
         .logo {
             padding: 8px 12px;
             font-weight: 400;
@@ -93,7 +93,6 @@
             align-items: center;
         }
         
-        /* Сделали иконки тоньше (используем Unicode-символы потоньше) */
         .header-controls span {
             cursor: pointer;
             font-size: 14px;
@@ -120,7 +119,6 @@
             padding-right: 50px;
         }
 
-        /* Заголовок: меньше, тоньше, изящнее */
         .left-col h1 {
             font-size: 42px;
             font-weight: 300;
@@ -129,7 +127,6 @@
             letter-spacing: 1px;
         }
 
-        /* Текст: меньше размер, больше прозрачности */
         .left-col p {
             font-size: 13px;
             color: rgba(255, 255, 255, 0.7);
@@ -139,7 +136,7 @@
             font-weight: 300;
         }
 
-        /* Кнопка: прозрачная (ghost button) */
+        /* Прозрачная кнопка (ghost button) */
         .see-more-link {
             display: inline-flex;
             align-items: center;
@@ -162,7 +159,7 @@
 
         /* --- ПРАВАЯ ПАНЕЛЬ (ГЛАССМОРФИЗМ) --- */
         .right-col {
-            width: 340px; /* Сделали панель чуть ýже */
+            width: 340px; 
             height: 100%;
             background: linear-gradient(to bottom, rgba(255,255,255,0.05), rgba(0,0,0,0.4));
             backdrop-filter: blur(10px);
@@ -210,7 +207,7 @@
         .contact-info {
             display: flex;
             align-items: center;
-            gap: 40px; /* Увеличили расстояние для "воздуха" */
+            gap: 40px;
         }
 
         .contact-item {
@@ -238,7 +235,6 @@
             gap: 12px;
         }
 
-        /* Индикатор стал спокойным белым полупрозрачным, без яркого свечения */
         .status-indicator {
             width: 6px;
             height: 6px;
@@ -261,6 +257,10 @@
                     <li><a href="#">Контакты</a></li>
                 </ul>
             </nav>
+            <div class="header-controls">
+                <span title="Личный кабинет">Вход</span>
+                <span title="Корзина">Корзина (0)</span>
+            </div>
         </header>
 
         <div class="main-content">
@@ -292,7 +292,7 @@
                 </div>
                 <div class="contact-item">
                     <span class="label">Email для заявок</span>
-                    <span class="value">zakaz@domen.ru</span>
+                    <span class="value">zakaz@zakaz.ru</span>
                 </div>
             </div>
             
