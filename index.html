@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inspirational Wind Sounds</title>
+    <title>FoodPro | Поставки для ресторанов</title>
     <style>
-        /* Сброс базовых стилей для чистоты верстки */
+        /* Сброс базовых стилей */
         * {
             margin: 0;
             padding: 0;
@@ -15,27 +15,36 @@
 
         body, html {
             height: 100%;
-            background-color: #8b939f; /* Цвет фона за пределами макета */
+            background-color: #2c3036; 
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
-        /* Главный контейнер (имитация экрана) */
+        /* Главный контейнер */
         .app-container {
             width: 1200px;
             height: 700px;
-            /* ВСТАВЬ СЮДА ССЫЛКУ НА КРАСИВУЮ ФОТОГРАФИЮ ГОР */
-            background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2070&auto=format&fit=crop');
+            /* Сочное фото с ингредиентами для ресторана */
+            background-image: url('https://images.unsplash.com/photo-1556910103-1c02745a872f?q=80&w=2070&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
             border-radius: 12px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
             position: relative;
             overflow: hidden;
             display: flex;
             flex-direction: column;
             color: #ffffff;
+        }
+
+        /* Наложение затемнения на фон, чтобы белый текст лучше читался */
+        .app-container::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1;
         }
 
         /* --- НАВИГАЦИЯ (HEADER) --- */
@@ -45,10 +54,12 @@
             align-items: center;
             padding: 30px 40px;
             height: 80px;
+            position: relative;
+            z-index: 2;
         }
 
         .logo {
-            background-color: #1a1a1a;
+            background-color: #e63946; /* Сделали логотип акцентным красным/аппетитным */
             padding: 10px 15px;
             font-weight: bold;
             font-size: 18px;
@@ -56,7 +67,6 @@
             border-radius: 4px;
         }
 
-        /* Аккуратная навигация */
         nav ul {
             display: flex;
             list-style: none;
@@ -64,16 +74,18 @@
         }
 
         nav a {
-            color: rgba(255, 255, 255, 0.7);
+            color: rgba(255, 255, 255, 0.8);
             text-decoration: none;
             font-size: 13px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             transition: color 0.3s;
+            font-weight: 500;
         }
 
         nav a:hover, nav a.active {
             color: #ffffff;
+            font-weight: bold;
         }
 
         .header-controls {
@@ -84,24 +96,8 @@
         
         .header-controls span {
             cursor: pointer;
-            font-size: 14px;
-            opacity: 0.8;
-        }
-
-        .search-bar {
-            display: flex;
-            align-items: center;
-            border-bottom: 1px solid rgba(255,255,255,0.3);
-            padding-bottom: 5px;
-            margin-left: 20px;
-        }
-        
-        .search-bar input {
-            background: none;
-            border: none;
-            color: white;
-            outline: none;
-            width: 100px;
+            font-size: 16px;
+            opacity: 0.9;
         }
 
         /* --- ОСНОВНОЙ КОНТЕНТ --- */
@@ -110,6 +106,8 @@
             flex: 1;
             padding: 0 40px;
             align-items: center;
+            position: relative;
+            z-index: 2;
         }
 
         .left-col {
@@ -122,44 +120,46 @@
             font-weight: 700;
             margin-bottom: 20px;
             line-height: 1.1;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
         }
 
-        /* Выверенные отступы для текста */
         .left-col p {
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.8);
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.9);
             line-height: 1.6;
             max-width: 500px;
             margin-bottom: 30px;
+            text-shadow: 0 1px 5px rgba(0,0,0,0.5);
         }
 
         .see-more-link {
-            display: flex;
+            display: inline-flex;
             align-items: center;
             gap: 15px;
             color: white;
             text-decoration: none;
-            font-size: 12px;
+            font-size: 13px;
+            font-weight: bold;
             text-transform: uppercase;
             letter-spacing: 1px;
+            background-color: #e63946;
+            padding: 12px 24px;
+            border-radius: 6px;
+            transition: background 0.3s;
         }
 
-        .see-more-link::before {
-            content: '';
-            display: block;
-            width: 40px;
-            height: 2px;
-            background-color: white;
+        .see-more-link:hover {
+            background-color: #d62828;
         }
 
         /* --- ПРАВАЯ ПАНЕЛЬ (ГЛАССМОРФИЗМ) --- */
         .right-col {
-            width: 350px;
+            width: 380px;
             height: 100%;
-            background: linear-gradient(to bottom, rgba(255,255,255,0.1), rgba(0,0,0,0.4));
-            backdrop-filter: blur(10px); /* Тот самый эффект матового стекла */
-            -webkit-backdrop-filter: blur(10px);
-            border-left: 1px solid rgba(255,255,255,0.1);
+            background: linear-gradient(to bottom, rgba(255,255,255,0.1), rgba(0,0,0,0.5));
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-left: 1px solid rgba(255,255,255,0.2);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -168,65 +168,71 @@
 
         .list-item {
             margin-bottom: 30px;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(255,255,255,0.2);
             padding-bottom: 20px;
         }
 
         .list-item h3 {
-            font-size: 16px;
+            font-size: 18px;
             margin-bottom: 10px;
+            color: #ffffff;
         }
 
         .list-item p {
-            font-size: 11px;
-            color: rgba(255,255,255,0.6);
+            font-size: 13px;
+            color: rgba(255,255,255,0.8);
             line-height: 1.5;
         }
 
-        /* --- НИЖНЯЯ ПАНЕЛЬ (ПЛЕЕР) --- */
-        .player-bar {
+        /* --- НИЖНЯЯ ПАНЕЛЬ (БЫВШИЙ ПЛЕЕР -> ПАНЕЛЬ ДОСТАВКИ) --- */
+        .info-bar {
             height: 90px;
-            background: rgba(0, 0, 0, 0.6);
+            background: rgba(0, 0, 0, 0.7);
             backdrop-filter: blur(15px);
             display: flex;
             align-items: center;
+            justify-content: space-between;
             padding: 0 40px;
-            gap: 30px;
+            position: relative;
+            z-index: 2;
+            border-top: 1px solid rgba(255,255,255,0.1);
         }
 
-        .track-info {
-            font-size: 12px;
-            font-weight: bold;
-            min-width: 200px;
-        }
-
-        .play-controls {
-            display: flex;
-            gap: 15px;
-            cursor: pointer;
-        }
-
-        .progress-bar-container {
-            flex: 1;
+        .contact-info {
             display: flex;
             align-items: center;
+            gap: 20px;
         }
 
-        .progress-line {
-            height: 2px;
-            width: 100%;
-            background: rgba(255,255,255,0.3);
-            position: relative;
+        .contact-item {
+            display: flex;
+            flex-direction: column;
         }
 
-        .progress-line::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            height: 100%;
-            width: 30%; /* Текущий прогресс трека */
-            background: white;
+        .contact-item span.label {
+            font-size: 11px;
+            color: rgba(255,255,255,0.5);
+            text-transform: uppercase;
+            margin-bottom: 3px;
+        }
+
+        .contact-item span.value {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .delivery-status {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .status-indicator {
+            width: 10px;
+            height: 10px;
+            background-color: #4CAF50; /* Зеленый огонек */
+            border-radius: 50%;
+            box-shadow: 0 0 10px #4CAF50;
         }
     </style>
 </head>
@@ -235,58 +241,60 @@
     <div class="app-container">
         
         <header>
-            <div class="logo">MR</div>
+            <div class="logo">FoodPro</div>
             <nav>
                 <ul>
-                    <li><a href="#" class="active">Home</a></li>
-                    <li><a href="#">Product</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Contact us</a></li>
+                    <li><a href="#" class="active">Каталог</a></li>
+                    <li><a href="#">Условия</a></li>
+                    <li><a href="#">О компании</a></li>
+                    <li><a href="#">Контакты</a></li>
                 </ul>
             </nav>
             <div class="header-controls">
-                <span>👤</span>
-                <span>🛒</span>
-                <span>☷</span>
-                <div class="search-bar">
-                    <input type="text" placeholder="Search">
-                    <span>🔍</span>
-                </div>
+                <span title="Личный кабинет">👤</span>
+                <span title="Корзина">🛒</span>
             </div>
         </header>
 
         <div class="main-content">
             
             <div class="left-col">
-                <h1>Inspirational wind sounds</h1>
-                <p>Vuesax is a framework of Vue js with Front End components strongly crafted looking for Vuesax.com. Build your next modern digital experience with ease.</p>
-                <a href="#" class="see-more-link">See more</a>
+                <h1>Премиальные продукты для HoReCa</h1>
+                <p>Бесперебойное снабжение ресторанов, кафе и отелей. Свежие овощи, фермерское мясо и редкие деликатесы с гарантией качества и доставкой день в день.</p>
+                <a href="#" class="see-more-link">Скачать прайс-лист</a>
             </div>
 
             <div class="right-col">
                 <div class="list-item">
-                    <h3>01 Vuesax Framework</h3>
-                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam, eaque ipsa.</p>
+                    <h3>01 Свежесть гарантирована</h3>
+                    <p>Собственный распределительный центр со строгим температурным контролем. Продукты попадают на вашу кухню в идеальном состоянии.</p>
                 </div>
                 <div class="list-item">
-                    <h3>02 Lusax Web Agency</h3>
-                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam, eaque ipsa.</p>
+                    <h3>02 Доставка 24/7</h3>
+                    <p>Привезем заказ в любое удобное время, даже ночью. Ваша кухня никогда не остановится из-за нехватки ингредиентов.</p>
                 </div>
             </div>
 
         </div>
 
-        <div class="player-bar">
-            <div class="track-info">Sountraks Paradise - Mix</div>
-            <div class="play-controls">
-                <span>⏸</span>
-                <span>⏭</span>
+        <div class="info-bar">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span class="label">Отдел продаж</span>
+                    <span class="value">+7 (800) 555-00-00</span>
+                </div>
+                <div class="contact-item">
+                    <span class="label">Email для заявок</span>
+                    <span class="value">zakaz@foodpro.ru</span>
+                </div>
             </div>
-            <div class="progress-bar-container">
-                <div class="progress-line"></div>
-            </div>
-            <div class="volume-controls">
-                <span>📶</span>
+            
+            <div class="delivery-status">
+                <div class="status-indicator"></div>
+                <div class="contact-item">
+                    <span class="label">Ближайшее окно доставки</span>
+                    <span class="value">Сегодня, 14:00 - 16:00</span>
+                </div>
             </div>
         </div>
 
