@@ -3,19 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FoodPro | Поставки для ресторанов</title>
+    <title>FoodPro | Premium B2B</title>
     <style>
         /* Сброс базовых стилей */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            /* Используем тонкое начертание по умолчанию */
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-weight: 300; 
         }
 
         body, html {
             height: 100%;
-            background-color: #2c3036; 
+            background-color: #111; 
             display: flex;
             justify-content: center;
             align-items: center;
@@ -25,12 +27,11 @@
         .app-container {
             width: 1200px;
             height: 700px;
-            /* Сочное фото с ингредиентами для ресторана */
-            background-image: url('https://images.unsplash.com/photo-1556910103-1c02745a872f?q=80&w=2070&auto=format&fit=crop');
+            background-image: url('https://images.unsplash.com/photo-1598511757337-fe2cafc31ba0?q=80&w=2070&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
-            border-radius: 12px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+            border-radius: 4px; /* Уменьшили скругление для большей строгости */
+            box-shadow: 0 10px 40px rgba(0,0,0,0.8);
             position: relative;
             overflow: hidden;
             display: flex;
@@ -38,12 +39,11 @@
             color: #ffffff;
         }
 
-        /* Наложение затемнения на фон, чтобы белый текст лучше читался */
         .app-container::before {
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0, 0, 0, 0.4);
+            background: rgba(0, 0, 0, 0.4); /* Чуть больше затемнили для контраста тонких букв */
             z-index: 1;
         }
 
@@ -58,13 +58,14 @@
             z-index: 2;
         }
 
+        /* Логотип теперь без фона, просто тонкая рамка */
         .logo {
-            background-color: #e63946; /* Сделали логотип акцентным красным/аппетитным */
-            padding: 10px 15px;
-            font-weight: bold;
-            font-size: 18px;
-            letter-spacing: 1px;
-            border-radius: 4px;
+            padding: 8px 12px;
+            font-weight: 400;
+            font-size: 14px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border: 1px solid rgba(255,255,255,0.4);
         }
 
         nav ul {
@@ -74,30 +75,34 @@
         }
 
         nav a {
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(255, 255, 255, 0.6);
             text-decoration: none;
-            font-size: 13px;
+            font-size: 11px;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            transition: color 0.3s;
-            font-weight: 500;
+            letter-spacing: 1px;
+            transition: color 0.4s;
         }
 
         nav a:hover, nav a.active {
             color: #ffffff;
-            font-weight: bold;
         }
 
         .header-controls {
             display: flex;
-            gap: 20px;
+            gap: 25px;
             align-items: center;
         }
         
+        /* Сделали иконки тоньше (используем Unicode-символы потоньше) */
         .header-controls span {
             cursor: pointer;
-            font-size: 16px;
-            opacity: 0.9;
+            font-size: 14px;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        .header-controls span:hover {
+            opacity: 1;
         }
 
         /* --- ОСНОВНОЙ КОНТЕНТ --- */
@@ -115,51 +120,54 @@
             padding-right: 50px;
         }
 
+        /* Заголовок: меньше, тоньше, изящнее */
         .left-col h1 {
-            font-size: 54px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            line-height: 1.1;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            font-size: 42px;
+            font-weight: 300;
+            margin-bottom: 25px;
+            line-height: 1.2;
+            letter-spacing: 1px;
         }
 
+        /* Текст: меньше размер, больше прозрачности */
         .left-col p {
-            font-size: 15px;
-            color: rgba(255, 255, 255, 0.9);
-            line-height: 1.6;
-            max-width: 500px;
-            margin-bottom: 30px;
-            text-shadow: 0 1px 5px rgba(0,0,0,0.5);
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.8;
+            max-width: 450px;
+            margin-bottom: 35px;
+            font-weight: 300;
         }
 
+        /* Кнопка: прозрачная (ghost button) */
         .see-more-link {
             display: inline-flex;
             align-items: center;
-            gap: 15px;
-            color: white;
+            color: #ffffff;
             text-decoration: none;
-            font-size: 13px;
-            font-weight: bold;
+            font-size: 11px;
+            font-weight: 400;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            background-color: #e63946;
-            padding: 12px 24px;
-            border-radius: 6px;
-            transition: background 0.3s;
+            letter-spacing: 1.5px;
+            padding: 10px 24px;
+            border: 1px solid rgba(255,255,255,0.4);
+            border-radius: 2px;
+            transition: all 0.4s;
         }
 
         .see-more-link:hover {
-            background-color: #d62828;
+            background-color: rgba(255,255,255,0.1);
+            border-color: #ffffff;
         }
 
         /* --- ПРАВАЯ ПАНЕЛЬ (ГЛАССМОРФИЗМ) --- */
         .right-col {
-            width: 380px;
+            width: 340px; /* Сделали панель чуть ýже */
             height: 100%;
-            background: linear-gradient(to bottom, rgba(255,255,255,0.1), rgba(0,0,0,0.5));
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-left: 1px solid rgba(255,255,255,0.2);
+            background: linear-gradient(to bottom, rgba(255,255,255,0.05), rgba(0,0,0,0.4));
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-left: 1px solid rgba(255,255,255,0.1); /* Очень тонкая граница */
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -167,27 +175,28 @@
         }
 
         .list-item {
-            margin-bottom: 30px;
-            border-bottom: 1px solid rgba(255,255,255,0.2);
+            margin-bottom: 35px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
             padding-bottom: 20px;
         }
 
         .list-item h3 {
-            font-size: 18px;
-            margin-bottom: 10px;
-            color: #ffffff;
+            font-size: 14px;
+            font-weight: 400;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
         }
 
         .list-item p {
-            font-size: 13px;
-            color: rgba(255,255,255,0.8);
-            line-height: 1.5;
+            font-size: 11px;
+            color: rgba(255,255,255,0.5);
+            line-height: 1.6;
         }
 
-        /* --- НИЖНЯЯ ПАНЕЛЬ (БЫВШИЙ ПЛЕЕР -> ПАНЕЛЬ ДОСТАВКИ) --- */
+        /* --- НИЖНЯЯ ПАНЕЛЬ --- */
         .info-bar {
-            height: 90px;
-            background: rgba(0, 0, 0, 0.7);
+            height: 80px;
+            background: rgba(0, 0, 0, 0.6);
             backdrop-filter: blur(15px);
             display: flex;
             align-items: center;
@@ -195,13 +204,13 @@
             padding: 0 40px;
             position: relative;
             z-index: 2;
-            border-top: 1px solid rgba(255,255,255,0.1);
+            border-top: 1px solid rgba(255,255,255,0.05);
         }
 
         .contact-info {
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 40px; /* Увеличили расстояние для "воздуха" */
         }
 
         .contact-item {
@@ -210,29 +219,31 @@
         }
 
         .contact-item span.label {
-            font-size: 11px;
-            color: rgba(255,255,255,0.5);
+            font-size: 9px;
+            color: rgba(255,255,255,0.4);
             text-transform: uppercase;
-            margin-bottom: 3px;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
         }
 
         .contact-item span.value {
-            font-size: 16px;
-            font-weight: bold;
+            font-size: 13px;
+            font-weight: 300;
+            letter-spacing: 0.5px;
         }
 
         .delivery-status {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 12px;
         }
 
+        /* Индикатор стал спокойным белым полупрозрачным, без яркого свечения */
         .status-indicator {
-            width: 10px;
-            height: 10px;
-            background-color: #4CAF50; /* Зеленый огонек */
+            width: 6px;
+            height: 6px;
+            background-color: rgba(255,255,255,0.7); 
             border-radius: 50%;
-            box-shadow: 0 0 10px #4CAF50;
         }
     </style>
 </head>
@@ -251,16 +262,16 @@
                 </ul>
             </nav>
             <div class="header-controls">
-                <span title="Личный кабинет">👤</span>
-                <span title="Корзина">🛒</span>
+                <span title="Личный кабинет">Вход</span>
+                <span title="Корзина">Корзина (0)</span>
             </div>
         </header>
 
         <div class="main-content">
             
             <div class="left-col">
-                <h1>Премиальные продукты для HoReCa</h1>
-                <p>Бесперебойное снабжение ресторанов, кафе и отелей. Свежие овощи, фермерское мясо и редкие деликатесы с гарантией качества и доставкой день в день.</p>
+                <h1>Премиальные продукты<br>для HoReCa</h1>
+                <p>Бесперебойное снабжение ресторанов и отелей. Свежие овощи, фермерское мясо и деликатесы с гарантией качества и доставкой день в день.</p>
                 <a href="#" class="see-more-link">Скачать прайс-лист</a>
             </div>
 
@@ -271,7 +282,7 @@
                 </div>
                 <div class="list-item">
                     <h3>02 Доставка 24/7</h3>
-                    <p>Привезем заказ в любое удобное время, даже ночью. Ваша кухня никогда не остановится из-за нехватки ингредиентов.</p>
+                    <p>Привезем заказ в любое удобное время. Ваша кухня никогда не остановится из-за нехватки ингредиентов.</p>
                 </div>
             </div>
 
@@ -292,7 +303,7 @@
             <div class="delivery-status">
                 <div class="status-indicator"></div>
                 <div class="contact-item">
-                    <span class="label">Ближайшее окно доставки</span>
+                    <span class="label">Окно доставки</span>
                     <span class="value">Сегодня, 14:00 - 16:00</span>
                 </div>
             </div>
